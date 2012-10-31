@@ -162,6 +162,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             textView.setGravity(Gravity.CENTER);
             Bundle args = getArguments();
             textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));
+            
+            
+            //blublu
             return textView;
       //View view = inflater.inflate(R.layout.section2fragment, (ViewGroup) container.findViewById(R.id.) );
             
