@@ -179,7 +179,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 Bundle savedInstanceState) {
             TextView textView = new TextView(getActivity());
             textView.setGravity(Gravity.CENTER);
-            textView.setTextSize(30);
+            textView.setTextSize(30);	
             Bundle args = getArguments();
             textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));
             return textView;
