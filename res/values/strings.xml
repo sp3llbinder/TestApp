@@ -9,5 +9,8 @@
     <string name="message">you are gay</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main_activity_page1">MainActivityPage1</string>
+    <string name="title_activity_test">TestAct</string>
+    <string name="button">Show Name</string>
+    <string name="enteryourname">your name</string>
 
 </resources>
