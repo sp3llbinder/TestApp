@@ -20,6 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivityPage1"
+            android:label="@string/title_activity_main_activity_page1" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ch.kenshiro.testapp.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
