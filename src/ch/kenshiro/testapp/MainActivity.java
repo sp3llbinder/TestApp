@@ -2,18 +2,15 @@ package ch.kenshiro.testapp;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -71,6 +68,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         }
     }
 
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main, menu);
@@ -79,17 +77,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     
 
-    @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
 
-    @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // When the given tab is selected, switch to the corresponding page in the ViewPager.
         mViewPager.setCurrentItem(tab.getPosition());
     }
 
-    @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
 
@@ -105,11 +100,32 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         @Override
         public Fragment getItem(int i) {
-            Fragment fragment = new DummySectionFragment();
+            
+            Fragment fragment;
             Bundle args = new Bundle();
             args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, i + 1);
-            fragment.setArguments(args);
-            return fragment;
+        	
+        	switch (i) {
+            case 0:
+            	fragment = new DummySectionFragment();
+            	fragment.setArguments(args);
+            	return fragment;
+            case 1: 
+            	fragment = new DummySectionFragment2();
+            	fragment.setArguments(args);
+            	return fragment;
+            case 2: 
+            	fragment = new DummySectionFragment();
+            	fragment.setArguments(args);
+            	return fragment;
+        }
+        return null;
+        	
+//            Fragment fragment = new DummySectionFragment();
+//            Bundle args = new Bundle();
+//            args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, i + 1);
+//            fragment.setArguments(args);
+//            return fragment;
         }
 
         @Override
@@ -142,6 +158,28 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 Bundle savedInstanceState) {
             TextView textView = new TextView(getActivity());
             textView.setGravity(Gravity.CENTER);
+            Bundle args = getArguments();
+            textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));
+            return textView;
+        }
+    }
+    
+    
+    /**
+     * A dummy fragment representing a section of the app, but that simply displays dummy text.
+     */
+    public static class DummySectionFragment2 extends Fragment {
+        public DummySectionFragment2() {
+        }
+
+        public static final String ARG_SECTION_NUMBER = "section_number";
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState) {
+            TextView textView = new TextView(getActivity());
+            textView.setGravity(Gravity.CENTER);
+            textView.setTextSize(30);
             Bundle args = getArguments();
             textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));
             return textView;
