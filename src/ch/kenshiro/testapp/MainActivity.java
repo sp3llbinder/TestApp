@@ -109,11 +109,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         	
         	switch (i) {
             case 0:
-            	fragment = new DummySectionFragment();
+            	fragment = new EnterName();
             	fragment.setArguments(args);
             	return fragment;
             case 1: 
-            	fragment = new EnterName();
+            	fragment = new DisplayURL();
             	fragment.setArguments(args);
             	return fragment;
             case 2: 

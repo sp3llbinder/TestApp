@@ -36,10 +36,13 @@ public class EnterName extends Fragment {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 //				 EditText name = (EditText) v.findViewById(R.id.editText1);
-				EditText name = (EditText) ((View) v.getParent()).findViewById(R.id.editText1);
-				name.getText();
-				 TextView textView = (TextView) ((View) v.getParent()).findViewById(R.id.textView1);
-				 textView.setText(name.getText().toString());				
+				EditText name = (EditText) ((View) v.getRootView()).findViewById(R.id.editText1);
+				//name.getText();
+				
+				 TextView textView = (TextView) ((View) v.getRootView()).findViewById(R.id.textView1);
+				 textView.setText(name.getText().toString());
+				 //textView.getText();
+				 //textView.setText("bubububu");
 			}
 		});
 		return view;

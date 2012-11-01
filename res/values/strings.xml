@@ -12,5 +12,6 @@
     <string name="title_activity_test">TestAct</string>
     <string name="button">Show Name</string>
     <string name="enteryourname">your name</string>
+    <string name="load_url_button">load url</string>
 
 </resources>
